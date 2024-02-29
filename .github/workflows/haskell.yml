@@ -209,25 +209,6 @@ jobs:
         cabal-version: 3.10.2.0
         ghc-version: 9.4.8
     - name: Cabal Check
-      run: |
-        COUNT=0
-        FAILS=0
-        declare -A invalid
-        invalid=()
-        find . -name '*.cabal' -not -path './dist-newstyle/**' | while read -r CABAL; do
-          COUNT=$((COUNT + 1))
-          pushd "$(dirname "${CABAL}")"
-          if ! cabal check; then
-            invalid=("${invalid[@]}" "${CABAL}")
-            FAILS=$((FAILS + 1))
-          fi
-          popd
-        done
-        if [ FAILS -gt 0 ]; then
-          echo "Cabal check failed for the following packages:" >> "${GITHUB_STEP_SUMMARY}"
-          echo "" >> "${GITHUB_STEP_SUMMARY}"
-          for PKG in "${invalid[@]}"; do
-            echo "- ${PKG}" >> "${GITHUB_STEP_SUMMARY}"
-          done
-          exit 1
-        fi
+      shell: bash
+      run: bash ./ci/scripts/cabal-check-packages.sh
+        
