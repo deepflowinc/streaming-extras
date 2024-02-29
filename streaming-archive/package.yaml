@@ -22,7 +22,7 @@ description:         Please see the README on GitHub at <https://github.com/deep
 dependencies:
 - base >= 4.7 && < 5
 
-default-language: GHC2021
+language: GHC2021
 default-extensions:
 - DuplicateRecordFields
 - NoFieldSelectors
