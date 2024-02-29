@@ -3,23 +3,22 @@
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE TypeOperators #-}
 
 module Streaming.Archive.Zip (zipStream) where
 
 import Codec.Archive.Zip.Conduit.Zip (ZipEntry (..), ZipOptions)
-import qualified Codec.Archive.Zip.Conduit.Zip as Z
-import qualified Conduit as C
+import Codec.Archive.Zip.Conduit.Zip qualified as Z
+import Conduit qualified as C
 import Control.Exception.Safe (MonadThrow)
 import Control.Monad (void)
 import Control.Monad.Primitive
 import Control.Monad.Trans.Class (MonadTrans (lift))
-import qualified Data.Bifunctor as Bi
+import Data.Bifunctor qualified as Bi
 import Data.Function ((&))
 import Data.Functor.Of (Of)
-import qualified Streaming as S
-import qualified Streaming.ByteString as Q
-import qualified Streaming.Prelude as S
+import Streaming qualified as S
+import Streaming.ByteString qualified as Q
+import Streaming.Prelude qualified as S
 
 newtype WrappedByteStream m a = WrapByteStream {unwrapByteStream :: Q.ByteStream m a}
   deriving newtype (Functor, Applicative, Monad, MonadThrow, MonadTrans)
