@@ -11,7 +11,7 @@ extra-source-files:
 - CHANGELOG.md
 
 # Metadata used when publishing your package
-synopsis:            Utilities for streaming package to manipulate archive formats, including (us)tar, Zip, and LZMA (`.xz`)..
+synopsis:            Utilities for streaming package to manipulate various archive formats.
 category:            streaming, Codec, compression
 
 # To avoid duplicated efforts in documentation and dealing with the
