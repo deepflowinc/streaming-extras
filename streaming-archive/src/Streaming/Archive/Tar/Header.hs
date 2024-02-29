@@ -1,15 +1,15 @@
+{-# LANGUAGE GHC2021 #-}
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE DeriveAnyClass #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DerivingStrategies #-}
 {-# LANGUAGE DuplicateRecordFields #-}
-{-# LANGUAGE GHC2021 #-}
-{-# LANGUAGE NoFieldSelectors #-}
 {-# LANGUAGE OverloadedLabels #-}
 {-# LANGUAGE OverloadedRecordDot #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
+{-# LANGUAGE NoFieldSelectors #-}
 
 -- Implements ustar
 module Streaming.Archive.Tar.Header (
@@ -44,32 +44,32 @@ module Streaming.Archive.Tar.Header (
 import Control.Applicative ((<|>))
 import Control.Comonad (duplicate)
 import Control.Exception (Exception)
-import qualified Control.Foldl as L
+import Control.Foldl qualified as L
 import Control.Lens (view)
 import Control.Monad ((<$!>))
-import qualified Data.Attoparsec.ByteString.Char8 as Atto
-import qualified Data.Attoparsec.ByteString.Streaming as AQ
+import Data.Attoparsec.ByteString.Char8 qualified as Atto
+import Data.Attoparsec.ByteString.Streaming qualified as AQ
 import Data.Bits
-import qualified Data.ByteString as BS
-import qualified Data.ByteString.Builder as BB
-import qualified Data.ByteString.Builder.Extra as BB
-import qualified Data.ByteString.Lazy as LBS
+import Data.ByteString qualified as BS
+import Data.ByteString.Builder qualified as BB
+import Data.ByteString.Builder.Extra qualified as BB
+import Data.ByteString.Lazy qualified as LBS
 import Data.ByteString.Short (ShortByteString)
-import qualified Data.ByteString.Short as SBS
+import Data.ByteString.Short qualified as SBS
 import Data.Function ((&))
 import Data.Functor (void)
 import Data.Functor.Identity (Identity (..))
 import Data.Functor.Of (Of (..))
 import Data.Generics.Labels ()
 import Data.Int (Int64)
-import qualified Data.List as List
+import Data.List qualified as List
 import Data.Monoid (Dual (..))
 import Data.Time (UTCTime)
 import Data.Time.Clock.POSIX (posixSecondsToUTCTime)
 import Data.Word
 import Foreign.C (CTime (..))
 import GHC.Generics (Generic)
-import qualified Streaming.ByteString as Q
+import Streaming.ByteString qualified as Q
 import System.Posix.Types (EpochTime, FileMode, GroupID, UserID)
 
 data Header = Header

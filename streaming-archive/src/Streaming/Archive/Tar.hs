@@ -21,24 +21,24 @@ module Streaming.Archive.Tar (
 ) where
 
 import Control.Exception.Safe (MonadThrow, throwM)
-import qualified Control.Foldl as L
+import Control.Foldl qualified as L
 import Control.Monad (when)
 import Control.Monad.IO.Class (MonadIO (..))
 import Control.Monad.Trans.Class (lift)
-import qualified Data.ByteString.Lazy as LBS
-import qualified Data.ByteString.Short as SBS
+import Data.ByteString.Lazy qualified as LBS
+import Data.ByteString.Short qualified as SBS
 import Data.Function ((&))
 import Data.Functor.Of (Of (..))
 import Data.Int (Int64)
-import qualified Data.Text as T
-import qualified Data.Text.Encoding as T
+import Data.Text qualified as T
+import Data.Text.Encoding qualified as T
 import Data.Time (UTCTime)
 import GHC.Generics (Generic, Generic1)
 import GHC.Records (HasField (..))
-import qualified Streaming as S
+import Streaming qualified as S
 import Streaming.Archive.Tar.Header
-import qualified Streaming.ByteString as Q
-import qualified Streaming.Prelude as S
+import Streaming.ByteString qualified as Q
+import Streaming.Prelude qualified as S
 import System.FilePath (isAbsolute, takeDirectory, (</>))
 import System.Posix.Types (FileMode, GroupID, UserID)
 import UnliftIO (IOMode (..), MonadUnliftIO, throwString)
