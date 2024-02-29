@@ -6,7 +6,9 @@ cabal-version: 2.2
 
 name:           streaming-archive
 version:        0.1.0.0
+synopsis:       Utilities for streaming package to manipulate archive formats, including (us)tar, Zip, and LZMA (`.xz`)..
 description:    Please see the README on GitHub at <https://github.com/deepflowinc/streaming-archive#readme>
+category:       streaming, Codec, compression
 homepage:       https://github.com/deepflowinc/streaming-archive#readme
 bug-reports:    https://github.com/deepflowinc/streaming-archive/issues
 author:         DeepFlow, Inc.

@@ -6,7 +6,9 @@ cabal-version: 2.2
 
 name:           streaming-s3
 version:        0.1.0.0
+synopsis:       A simple streaming library to communicate with S3-compatible storage.
 description:    Please see the README on GitHub at <https://github.com/deepflowinc/streaming-s3#readme>
+category:       streaming, Network, Web
 homepage:       https://github.com/deepflowinc/streaming-s3#readme
 bug-reports:    https://github.com/deepflowinc/streaming-s3/issues
 author:         DeepFlow, Inc.

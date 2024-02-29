@@ -1,6 +1,6 @@
 # streaming-archive
 
-This package provides utilities to manipulate archive formats, including (us)tar, Zip, and LZMA (`.xz`).
+This package provides a utility for streaming package to manipulate archive formats, including (us)tar, Zip, and LZMA (`.xz`).
 
 ## Copyright
 
