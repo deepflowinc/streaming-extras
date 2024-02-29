@@ -207,7 +207,6 @@ jobs:
     - uses: haskell-actions/setup@v2
       with:
         cabal-version: 3.10.2.0
-        ghc-version: 9.4.8
     - name: Cabal Check
       shell: bash
       run: bash ./ci/scripts/cabal-check-packages.sh
