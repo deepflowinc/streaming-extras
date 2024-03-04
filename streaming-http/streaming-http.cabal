@@ -9,8 +9,8 @@ version:        0.1.0.0
 synopsis:       A simple
 description:    Please see the README on GitHub at <https://github.com/deepflowinc/streaming-http#readme>
 category:       Web, streaming
-homepage:       https://github.com/deepflowinc/streaming-http#readme
-bug-reports:    https://github.com/deepflowinc/streaming-http/issues
+homepage:       https://github.com/deepflowinc/streaming-extras#readme
+bug-reports:    https://github.com/deepflowinc/streaming-extras/issues
 author:         DeepFlow, Inc.
 maintainer:     DeepFlow, Inc.
 copyright:      2024 (c) DeepFlow, Inc.
@@ -23,7 +23,8 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/deepflowinc/streaming-http
+  location: https://github.com/deepflowinc/streaming-extras
+  subdir: streaming-http
 
 library
   exposed-modules:

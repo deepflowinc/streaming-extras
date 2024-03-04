@@ -1,6 +1,6 @@
 name:                streaming-SHA
 version:             0.1.0.0
-github:              "deepflowinc/streaming-SHA"
+github:              "deepflowinc/streaming-extras/streaming-SHA"
 license:             BSD-3-Clause
 author:              "DeepFlow, Inc."
 maintainer:          "DeepFlow, Inc."

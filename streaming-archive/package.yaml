@@ -1,6 +1,6 @@
 name:                streaming-archive
 version:             0.1.0.0
-github:              "deepflowinc/streaming-archive"
+github:              "deepflowinc/streaming-extras/streaming-archive"
 license:             BSD-3-Clause
 author:              "DeepFlow, Inc."
 maintainer:          "DeepFlow, Inc."

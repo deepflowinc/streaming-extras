@@ -1,6 +1,6 @@
 name:                streaming-s3
 version:             0.1.0.0
-github:              "deepflowinc/streaming-s3"
+github:              "deepflowinc/streaming-extras/streaming-s3"
 license:             BSD-3-Clause
 author:              "DeepFlow, Inc."
 maintainer:          "DeepFlow, Inc."

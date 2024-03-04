@@ -9,8 +9,8 @@ version:        0.1.0.0
 synopsis:       Utilities for streaming package to manipulate various archive formats.
 description:    Please see the README on GitHub at <https://github.com/deepflowinc/streaming-archive#readme>
 category:       streaming, Codec, compression
-homepage:       https://github.com/deepflowinc/streaming-archive#readme
-bug-reports:    https://github.com/deepflowinc/streaming-archive/issues
+homepage:       https://github.com/deepflowinc/streaming-extras#readme
+bug-reports:    https://github.com/deepflowinc/streaming-extras/issues
 author:         DeepFlow, Inc.
 maintainer:     DeepFlow, Inc.
 copyright:      2024 (c) DeepFlow, Inc.
@@ -23,7 +23,8 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/deepflowinc/streaming-archive
+  location: https://github.com/deepflowinc/streaming-extras
+  subdir: streaming-archive
 
 library
   exposed-modules:

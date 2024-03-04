@@ -1,6 +1,6 @@
 name:                streaming-http
 version:             0.1.0.0
-github:              "deepflowinc/streaming-http"
+github:              "deepflowinc/streaming-extras/streaming-http"
 license:             BSD-3-Clause
 author:              "DeepFlow, Inc."
 maintainer:          "DeepFlow, Inc."
