@@ -6,6 +6,7 @@
 -- To only use tested packages, uncomment the following line:
 -- remote-repo: stackage-nightly-2024-03-01:http://www.stackage.org/nightly-2024-03-01
 import: ../../cabal.project
+with-compiler: ghc-9.8.2
 index-state: hackage.haskell.org 2024-03-05T05:41:26Z
 constraints: abstract-deque ==0.3,
              abstract-deque-tests ==0.3,
