@@ -21,7 +21,8 @@ module Streaming.Archive.Lzma (
 import Codec.Compression.Lzma (LzmaRet (..))
 import Codec.Compression.Lzma qualified as Lzma
 import Control.Exception.Safe (Exception, MonadThrow, throwM)
-import Control.Monad.Primitive (PrimMonad, primToPrim)
+import Control.Monad.Primitive (PrimMonad, PrimState, primToPrim)
+import Control.Monad.ST.Lazy (ST)
 import Control.Monad.Trans.Class
 import Data.ByteString qualified as BS
 import Streaming.ByteString qualified as Q
@@ -47,6 +48,7 @@ decompress =
       }
 
 decompressWith ::
+  forall m r.
   (MonadThrow m, PrimMonad m) =>
   Lzma.DecompressParams ->
   Q.ByteStream m r ->
@@ -54,6 +56,7 @@ decompressWith ::
   Q.ByteStream m (Q.ByteStream m r)
 decompressWith params q0 = go q0 =<< lift (primToPrim (Lzma.decompressST params))
   where
+    go :: Q.ByteStream m b -> Lzma.DecompressStream (ST (PrimState m)) -> Q.ByteStream m (Q.ByteStream m b)
     go stream enc@(Lzma.DecompressInputRequired cont) = do
       lift (Q.unconsChunk stream) >>= \case
         Right (ibs, stream')
