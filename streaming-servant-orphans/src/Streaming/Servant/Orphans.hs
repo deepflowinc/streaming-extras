@@ -1,4 +1,5 @@
 {-# LANGUAGE BlockArguments #-}
+{-# LANGUAGE CPP #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE LambdaCase #-}
@@ -26,12 +27,20 @@ import qualified Streaming.Prelude as S
 import UnliftIO (MonadIO (..))
 import UnliftIO.Exception (throwString)
 
+#if MIN_VERSION_servant(0,20,0)
+wrapSourceIO :: a -> IO a
+wrapSourceIO = pure
+#else
+wrapSourceIO :: a -> a
+wrapSourceIO = id
+#endif
+
 instance
   (MonadIO m, chunk ~ BS.ByteString) =>
   FromSourceIO chunk (Q.ByteStream m ())
   where
   {-# INLINE fromSourceIO #-}
-  fromSourceIO (hoist liftIO -> SourceT f) = f $ fix $ \go -> \case
+  fromSourceIO (hoist liftIO -> SourceT f) = wrapSourceIO $ f $ fix $ \go -> \case
     SV.Stop -> Q.Empty ()
     SV.Error e -> throwString e
     SV.Skip s -> go s
@@ -51,7 +60,7 @@ instance
 
 instance (MonadIO m, b ~ a) => FromSourceIO b (S.Stream (Of a) m ()) where
   {-# INLINE fromSourceIO #-}
-  fromSourceIO (hoist liftIO -> SourceT f) = f $ fix $ \go -> \case
+  fromSourceIO (hoist liftIO -> SourceT f) = wrapSourceIO $ f $ fix $ \go -> \case
     SV.Stop -> S.Return ()
     SV.Error e -> throwString e
     SV.Skip s -> go s
