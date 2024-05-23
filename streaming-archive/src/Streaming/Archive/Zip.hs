@@ -4,9 +4,17 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE TypeFamilies #-}
 
-module Streaming.Archive.Zip (zipStream) where
+module Streaming.Archive.Zip (
+  zipStream,
 
-import Codec.Archive.Zip.Conduit.Zip (ZipEntry (..), ZipOptions)
+  -- * Re-exports
+  ZipOptions (..),
+  ZipEntry (..),
+  ZipInfo (..),
+  defaultZipOptions,
+) where
+
+import Codec.Archive.Zip.Conduit.Zip (ZipEntry (..), ZipInfo (..), ZipOptions (..), defaultZipOptions)
 import Codec.Archive.Zip.Conduit.Zip qualified as Z
 import Conduit qualified as C
 import Control.Exception.Safe (MonadThrow)
